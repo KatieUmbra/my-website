@@ -1,0 +1,153 @@
+Index: src/jsx/Core.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import \"./css/Core.css\";\r\nfunction App() {\r\n  return (\r\n    <div className=\"h-screen flex justify-center items-center flex-col gap-y-6 flex-wrap dark:bg-gray-900 bg-white\">\r\n      <h1 className=\"Header\">Welcome to Reactbreeze! \uD83D\uDC4B</h1>\r\n      <p className=\"Text\">Reactbreeze simplifies the setup of React-based Tailwind applications by having an organized file structure with all the tools that you need, all out-of-the-box. <b>Work more efficiently with Reactbreeze.</b></p>\r\n      <a target=\"_blank\" rel=\"noreferrer noopener\" href=\"https://github.com/hydrabank/cra-template-reactbreeze.git\"><button className=\"Button\">Learn more</button></a>\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/jsx/Core.js b/src/jsx/Core.js
+--- a/src/jsx/Core.js	(revision c65c8163413b46b440fa746dacb003e54a4d0904)
++++ b/src/jsx/Core.js	(date 1671420234787)
+@@ -1,10 +1,18 @@
+ import "./css/Core.css";
++import "./js/app.js"
+ function App() {
+   return (
+-    <div className="h-screen flex justify-center items-center flex-col gap-y-6 flex-wrap dark:bg-gray-900 bg-white">
+-      <h1 className="Header">Welcome to Reactbreeze! 👋</h1>
+-      <p className="Text">Reactbreeze simplifies the setup of React-based Tailwind applications by having an organized file structure with all the tools that you need, all out-of-the-box. <b>Work more efficiently with Reactbreeze.</b></p>
+-      <a target="_blank" rel="noreferrer noopener" href="https://github.com/hydrabank/cra-template-reactbreeze.git"><button className="Button">Learn more</button></a>
++    <div class="main">
++      <div class="terminal">
++          <div class="tabs">
++            <div class="tab">
++
++            </div>
++          </div>
++          <div class="terminalField">
++
++          </div>
++      </div>
+     </div>
+   );
+ }
+Index: src/jsx/css/Core.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.Header {\r\n  @apply text-black text-center dark:text-white font-bold text-4xl font-BreezeHeader px-5;\r\n}\r\n\r\n.Text {\r\n  @apply text-black text-center dark:text-white text-2xl font-BreezeText px-12;\r\n}\r\n\r\n.Button {\r\n  @apply text-white font-bold text-2xl font-BreezeHeader rounded-xl border-8 border-blue-600 bg-blue-600;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/jsx/css/Core.css b/src/jsx/css/Core.css
+--- a/src/jsx/css/Core.css	(revision c65c8163413b46b440fa746dacb003e54a4d0904)
++++ b/src/jsx/css/Core.css	(date 1671422470954)
+@@ -1,4 +1,16 @@
+-.Header {
++:root {
++  --terminalSize: 100%;
++}
++
++html, body {
++  margin: 0;
++  padding: 0;
++  width: 100%;
++  height: 100%;
++  display: flex;
++}
++
++Header {
+   @apply text-black text-center dark:text-white font-bold text-4xl font-BreezeHeader px-5;
+ }
+ 
+@@ -8,4 +20,62 @@
+ 
+ .Button {
+   @apply text-white font-bold text-2xl font-BreezeHeader rounded-xl border-8 border-blue-600 bg-blue-600;
++}
++
++.main {
++  position: absolute;
++  background-color: #16191f;
++  width: 100%;
++  height: 100vh;
++  display: flex;
++  align-items: center;
++  justify-content: center;
++}
++
++@keyframes terminalOpen {
++  0% {transform: scale(.3);}
++  50% {transform: scale(1.05);}
++  75% {transform: scale(.95);}
++  100% {transform: scale(1);}
++}
++
++.terminal {
++  background-color: #313333;
++  margin: 0 auto;
++  width: 50%;
++  height: 50%;
++  border-radius: 5px;
++  box-shadow: 5px 20px 20px 2px #000000;
++  text-align: center;
++  animation-name: terminalOpen;
++  animation-duration: 1s;
++}
++
++.tabs {
++  height: 10%;
++  width: 100%;
++  margin: 10px;
++  display: flex;
++  align-items: center;
++  top: 0;
++}
++
++.tab {
++  background-color: #595959;
++  height: 90%;
++  width: 25%;
++  border-radius: 10px;
++}
++
++.tab:hover {
++  background-color: #4b4b4b;
++}
++
++.terminalField {
++  background-color: #141618;
++  height: 90%;
++  width: 100%;
++  position: relative;
++  border-radius: 0 0 5px 5px;
++  bottom: 0;
+ }
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	(date 1670795706511)
++++ b/.idea/inspectionProfiles/Project_Default.xml	(date 1670795706511)
+@@ -0,0 +1,15 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
++      <option name="myValues">
++        <value>
++          <list size="1">
++            <item index="0" class="java.lang.String" itemvalue="class" />
++          </list>
++        </value>
++      </option>
++      <option name="myCustomValuesEnabled" value="true" />
++    </inspection_tool>
++  </profile>
++</component>
+\ No newline at end of file
+diff --git a/src/jsx/js/app.js b/src/jsx/js/app.js
+new file mode 100644
